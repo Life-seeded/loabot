@@ -1,7 +1,7 @@
 const { Client, Intents, MessageEmbed } = require("discord.js");
 
-const { token } = require(process.env.TOKEN);
-const { prefix } = require("!");
+const token = process.env.TOKEN;
+const prefix = "!";
 const fs = require("fs");
 const { getUserInfo } = require("./lostark/loaInfo/loaInfoData.js");
 const {
