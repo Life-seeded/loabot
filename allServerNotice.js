@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const madeNotice = (client, message) => {
   const noticeMessage = new MessageEmbed()
     .setColor("#ff3399")
-    .setTitle("믹스테잎봇 공지사항")
+    .setTitle("로아봇 공지사항")
     .setDescription(message.content.replace("!!!공지", ""));
 
   client.guilds.cache.forEach((guild) => {
