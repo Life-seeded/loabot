@@ -67,14 +67,20 @@ const incomeCalc = async (message, userName, errorMessage) => {
       let reward = countingRaidReward(ownList);
 
       let rewardImcomeResult =
+        reward.abrelHard56 * 3000 +
+        reward.abrelHard34 * 2000 +
+        reward.abrelHard12 * 5500 +
+        reward.abrelNormal56 * 2500 +
+        reward.abrelNormal34 * 1500 +
+        reward.abrelNormal12 * 4500 +
         reward.koukuSaton * 4500 +
         reward.biackissHard * 4500 +
         reward.valtanHard * 4500 +
-        reward.biackissNormal * 3300 +
-        reward.valtanNormal * 3300 +
-        reward.argus * 3300 +
-        reward.orehaHard * 1700 +
-        reward.orehaNormal * 1500;
+        reward.biackissNormal * 2500 +
+        reward.valtanNormal * 2500 +
+        reward.argus * 1600 +
+        reward.orehaHard * 1300 +
+        reward.orehaNormal * 1100;
 
       //! 총 임베드 메시지 생성
       try {
@@ -101,14 +107,20 @@ const incomeCalc = async (message, userName, errorMessage) => {
             {
               name: `\`주간 컨텐츠\``,
               value: `
-            쿠크세이튼 [\`4500골드\`] 
+            아브렐슈드 하드 56관문 [\`3000골드\`]
+            아브렐슈드 하드 34관문 [\`2000골드\`]
+            아브렐슈드 하드 12관문 [\`5500골드\`]
+            아브렐슈드 노말 56관문 [\`2500골드\`]
+            아브렐슈드 노말 34관문 [\`1500골드\`]
+            아브렐슈드 노말 12관문 [\`4500골드\`]
+            쿠크세이튼 [\`4500골드\`]
             비아키스 하드 [\`4500골드\`]
             발탄 하드 [\`4500골드\`]
-            비아키스 노말 [\`3300골드\`]
-            발탄 노말 [\`3300골드\`]
-            아르고스 (~3페) [\`3300골드\`]
-            오레하 하드 [\`1700골드\`]
-            오레하 노말 [\`1500골드\`]
+            비아키스 노말 [\`2500골드\`]
+            발탄 노말 [\`2500골드\`]
+            아르고스 (~3페) [\`1600골드\`]
+            오레하 하드 [\`1300골드\`]
+            오레하 노말 [\`1100골드\`]
 
             총 보상 골드 합계 : \`${rewardImcomeResult}\`
             `,
@@ -117,6 +129,12 @@ const incomeCalc = async (message, userName, errorMessage) => {
             {
               name: `\`해당 캐릭터 수\``,
               value: `
+            :  \`${reward.abrelHard56}\` 캐릭터
+            :  \`${reward.abrelHard34}\` 캐릭터
+            :  \`${reward.abrelHard12}\` 캐릭터
+            :  \`${reward.abrelNormal56}\` 캐릭터
+            :  \`${reward.abrelNormal34}\` 캐릭터
+            :  \`${reward.abrelNormal12}\` 캐릭터
             :  \`${reward.koukuSaton}\` 캐릭터
             :  \`${reward.biackissHard}\` 캐릭터
             :  \`${reward.valtanHard}\` 캐릭터
@@ -136,8 +154,6 @@ const incomeCalc = async (message, userName, errorMessage) => {
             - 순수히 \'클리어했을 때 보상으로 주는 골드\'만을 계산했습니다.
             - 보유중인 각 캐릭터의 레벨을 기준으로
               가장 상위 단계의 컨텐츠를 클리어한다고 가정한 값입니다.
-            - 아브렐슈드는 개인별 편차가 커 계산에 포함되지 않습니다.
-            (1475 쿠크세이튼까지 수행한 것과 똑같이 계산했습니다.)
             `,
             }
           );
@@ -282,6 +298,12 @@ const countingRaidReward = (list) => {
     biackissNormal: 0,
     biackissHard: 0,
     koukuSaton: 0,
+    abrelNormal12: 0,
+    abrelNormal34: 0,
+    abrelNormal56: 0,
+    abrelHard12: 0,
+    abrelHard34: 0,
+    abrelHard56: 0,
   };
 
   for (let i = 0; i < list.length; i++) {
@@ -314,6 +336,28 @@ const countingRaidReward = (list) => {
     if (char >= 1475) {
       result.koukuSaton++;
       result.argus--;
+    }
+    if (char >= 1490) {
+      result.biackissHard--;
+      result.abrelNormal12++;
+    }
+    if (char >= 1500) {
+      result.abrelNormal34++;
+    }
+    if (char >= 1520) {
+      result.abrelNormal56++;
+    }
+    if (char >= 1540) {
+      result.abrelNormal12--;
+      result.abrelHard12++;
+    }
+    if (char >= 1550) {
+      result.abrelNormal34--;
+      result.abrelHard34++;
+    }
+    if (char >= 1560) {
+      result.abrelNormal56--;
+      result.abrelHard56++;
     }
   }
 
