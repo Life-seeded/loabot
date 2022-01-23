@@ -20,6 +20,7 @@
           {"jobName": "소서리스", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_sorceress.png"},
           {"jobName": "데모닉", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_demonic.png"},
           {"jobName": "블레이드", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_blade.png"},
-          {"jobName": "리퍼", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_reaper.png"}
+          {"jobName": "리퍼", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_reaper.png"},
+          {"jobName": "도화가", "imgSrc": "https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_artist.png"}
   ]
 }
